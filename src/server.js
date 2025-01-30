@@ -12,7 +12,11 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.FRONTEND_URL ,"http://localhost:8080","http://192.168.1.3:8080", // Allow specific frontend URL (for local dev)
+  origin: [
+    process.env.FRONTEND_URL, // Dynamic frontend URL from environment variable
+    "http://localhost:8080",   // Local dev URL
+    "http://192.168.1.3:8080", // Local network dev URL
+  ], 
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   credentials: true, // Allow credentials (cookies, authorization headers)
